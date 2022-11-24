@@ -19,7 +19,7 @@ configurations {
 repositories {
     mavenCentral()
 }
-def grpcVersion = '1.16.1'
+def grpcVersion = '1.51.0'
 def protobufVersion = '3.19.2'
 
 dependencies {
@@ -34,15 +34,17 @@ dependencies {
     //Swagger
     implementation 'io.springfox:springfox-swagger2:3.0.0'
     implementation 'io.springfox:springfox-boot-starter:3.0.0'
-    implementation 'org.springframework.boot:spring-boot-starter-parent:2.4.0'
+    implementation 'org.springframework.boot:spring-boot-starter-parent:2.7.5'
 
     //GRPC
-    implementation 'io.github.lognet:grpc-spring-boot-starter:4.9.0'
     implementation "io.grpc:grpc-netty:${grpcVersion}"
     implementation "io.grpc:grpc-protobuf:${grpcVersion}"
     implementation "io.grpc:grpc-stub:${grpcVersion}"
-    implementation 'com.google.protobuf:protobuf-java:3.19.1'
+    implementation 'com.google.protobuf:protobuf-java:3.21.9'
     implementation platform('com.google.cloud:libraries-bom:26.1.5')
+    compileOnly 'org.apache.tomcat:annotations-api:6.0.53'
+
+    implementation 'net.devh:grpc-server-spring-boot-starter:2.14.0.RELEASE'
 
 
     implementation 'com.google.cloud:google-cloud-pubsub'

@@ -37,6 +37,16 @@ public class DiscountGrpcServiceImpl extends DiscountServiceGrpc.DiscountService
                     .build();
             responseObserver.onNext(response);
             responseObserver.onCompleted();
+        } else {
+            DiscountResponse response = DiscountResponse.newBuilder()
+                    .setCode(discount.getCode())
+                    .setNewPRice(0)
+                    .setOldPrice(request.getPrice())
+                    .setUserEmail(request.getUserEmail())
+                    .setStatusCode(false)
+                    .build();
+            responseObserver.onNext(response);
+            responseObserver.onCompleted();
         }
         super.getDiscount(request, responseObserver);
     }

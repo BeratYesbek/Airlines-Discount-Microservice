@@ -7,21 +7,16 @@ import com.beratyesbek.grpc.DiscountResponse;
 import com.beratyesbek.grpc.DiscountServiceGrpc;
 
 import io.grpc.stub.StreamObserver;
+import lombok.AllArgsConstructor;
 import net.devh.boot.grpc.server.service.GrpcService;
-import org.springframework.beans.factory.annotation.Autowired;
 
 
 @GrpcService
+@AllArgsConstructor
 public class DiscountGrpcServiceImpl extends DiscountServiceGrpc.DiscountServiceImplBase {
 
 
     private final DiscountRepository repository;
-
-    @Autowired
-    public DiscountGrpcServiceImpl(DiscountRepository repository) {
-        this.repository = repository;
-    }
-
 
     @Override
     public void getDiscount(DiscountRequest request, StreamObserver<DiscountResponse> responseObserver) {

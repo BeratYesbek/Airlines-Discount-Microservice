@@ -19,13 +19,6 @@ public class AirlinesDiscountMicroserviceApplication {
     @SneakyThrows
     public static void main(String[] args) {
         SpringApplication.run(AirlinesDiscountMicroserviceApplication.class, args);
-
-       /*Server server = ServerBuilder
-                .forPort(6565)
-                .addService(DiscountGrpcServiceImpl.class).build();
-
-        server.start();
-        server.awaitTermination();*/
     }
 
     @Configuration
